@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>WebRTC Chat Room</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Landing Page Container -->
+     <div id="main_layout">
+        <div id="landing_page_container">
+            <!-- section 1: header -->
+            <div id="header">
+                <h1>File Transfer With WebRTC</h1>
+                <p>Transfer files to another user in real time through your browser or phone.</p>
+                <br>
+                <h4>Getting started</h4>
+                <ol>
+                    <li>The file is split into chunks which are then transferred via a WebRTC <strong>RTCDataChannel</strong>.</li>
+                    <li>Send and receive progress is monitored using the HTML5 <i>progress</i> element.</li>
+                    <li>At the receiver end, the file is reassembled using the Blob API and made available for download.</li>
+                </ol>
+            </div>
+        
+                <!-- section 2: File UI Elements -->
+                <div id="file_transfer_wrapper">
+        
+                    <!-- other user's online session id -->
+                    <label for="receiver_id">Enter Recipient session ID:</label>
+                    <input type="text" id="receiver_id" placeholder="Enter Recipient Session ID" />
+                    <br>
+        
+                    <!-- upload file frontend -->
+                    <label for="file_upload_input">Upload File:</label>
+                    <input type="file" id="file_upload_input" disabled />
+                    <span id="file_selection_status"></span>
+        
+        
+                    <!-- send/stop buttons -->
+                    <br>
+                    <button id="send_file_button" disabled>Send</button>
+                    <button id="abort_file_button" disabled>Stop</button>
+        
+                    <!-- progress display -->
+                    <br>
+                    <br>
+                    <div class="progress">
+                        <div class="label">Send progress: </div>
+                        <progress id="send_progress" max="0" value="0"></progress>
+                    </div>
+                
+                    <div class="progress">
+                        <div class="label">Receive progress: </div>
+                        <progress id="receive_progress" max="0" value="0"></progress>
+                    </div>
+                </div>
+                
+                <!-- after receiver gets document -->
+                <div id="stats"></div>
+                <a id="download"></a>
+            
+            </div>
+        
+            <br>
+            <!-- Section 3: Custom Console -->
+            <div id="console_wrapper">
+                <p>WebRTC Status Console 👇</p>
+                <!-- Unique Session ID Display -->
+                <p id="session_id_display"></p>
+                <!-- actual console box -->
+                <div id="console_display"></div>
+            </div>
+    </div>
+    
+</body>
+</html>
